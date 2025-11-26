@@ -2,7 +2,14 @@ import React from 'react'
 
 function SearchBar() {
   return (
-    <div>SearchBar</div>
+
+    
+    <section>
+      <form action="" onSubmit={() => alert("Form submitted!")}>
+        <input type="text" placeholder='Find a word'/>
+
+      </form>
+    </section>
   )
 }
 
