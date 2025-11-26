@@ -1,0 +1,23 @@
+.app {
+  
+  font-family: 'Inter', sans-serif;
+
+  // &.sans-serif {
+  //   // background-color: red;
+  // }
+
+  &.serif {
+    // background-color: purple;
+    font-family: 'Lora', serif;
+  }
+
+  &.mono {
+    // background-color: blue;
+    font-family: 'Inconsolata', monospace;
+  }
+}
+
+.fontStyle {
+  border: none;
+  background-color: transparent;
+}
