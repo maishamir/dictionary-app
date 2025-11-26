@@ -12,18 +12,28 @@ function App() {
   const [fontClass, setFontClass] = useState("sans-serif");
 
   const [entry, setEntry] = useState("keyboard");
+  const [entryData, setEntryData] = useState("");
+  const [isError, setIsError] = useState(false);
 
-  // useEffect(() => {
-  //   async function getEntry() {
-  //     try {
-  //       const response = await axios.get(`${BASE}/${entry}`);
-  //       console.log(response.data[0])
-  //     } catch (err) {
-  //       console.error(err)
-  //     }
-  //   }
-  //   getEntry();
-  // }, [entry]);
+  function handleSearch(entryInput) {
+    setEntry(entryInput);
+    console.log(entryInput);
+  }
+
+  useEffect(() => {
+    async function getEntry() {
+      try {
+        const response = await axios.get(`${BASE}/${entry}`);
+        console.log(response.data[0])
+        setEntryData(response.data[0])
+        setIsError(false)
+      } catch (err) {
+        console.error(err)
+        setIsError(true)
+      }
+    }
+    getEntry();
+  }, [entry]);
 
   return (
     <main className={`app ${fontClass}`} data-theme={isDark ? "dark" : "light"}>
@@ -50,8 +60,8 @@ function App() {
         <p>Font family: {fontClass}</p>
       </header>
 
-      <SearchBar />
-      <Entry />
+      <SearchBar onSearch={handleSearch}  />
+      <Entry entryNotFound={isError}/>
     </main>
   );
 }

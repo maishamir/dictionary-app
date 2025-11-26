@@ -1,19 +1,18 @@
 .app {
-  
-  font-family: 'Inter', sans-serif;
-
-  // &.sans-serif {
-  //   // background-color: red;
-  // }
+  * {
+    font-family: "Inter", sans-serif;
+  }
 
   &.serif {
-    // background-color: purple;
-    font-family: 'Lora', serif;
+    * {
+      font-family: "Lora", serif;
+    }
   }
 
   &.mono {
-    // background-color: blue;
-    font-family: 'Inconsolata', monospace;
+    * {
+      font-family: "Inconsolata", monospace;
+    }
   }
 }
 
