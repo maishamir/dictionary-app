@@ -41,17 +41,17 @@ function App() {
         <img src={logo} alt="" />
 
         <form action="">
-          <select name="fontStyle" id="fontStyle" className="fontStyle">
+          <select name="fontStyle" id="fontStyle" className="fontStyle" onChange={(e) => setFontClass(e.target.value)}>
             <option
               value="sans-serif"
-              onClick={(e) => setFontClass(e.target.value)}
+
             >
               Sans Serif
             </option>
-            <option value="serif" onClick={(e) => setFontClass(e.target.value)}>
+            <option value="serif" >
               Serif
             </option>
-            <option value="mono" onClick={(e) => setFontClass(e.target.value)}>
+            <option value="mono" >
               Mono
             </option>
           </select>
@@ -60,8 +60,8 @@ function App() {
         <p>Font family: {fontClass}</p>
       </header>
 
-      <SearchBar onSearch={handleSearch}  />
-      <Entry entryNotFound={isError}/>
+      <SearchBar onSearch={handleSearch} />
+      <Entry entryNotFound={isError} />
     </main>
   );
 }
