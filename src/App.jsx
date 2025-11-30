@@ -61,7 +61,7 @@ function App() {
       </header>
 
       <SearchBar onSearch={handleSearch} />
-      <Entry entryNotFound={isError} />
+      <Entry entry={entryData} entryNotFound={isError} />
     </main>
   );
 }
