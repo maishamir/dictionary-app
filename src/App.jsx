@@ -13,7 +13,8 @@ function App() {
 
   const [entry, setEntry] = useState("keyboard");
   const [entryData, setEntryData] = useState("");
-  const [isError, setIsError] = useState(false);
+  // const [isError, setIsError] = useState(false);
+  const [errData, setErrData] = useState("")
 
   function handleSearch(entryInput) {
     setEntry(entryInput);
@@ -24,12 +25,13 @@ function App() {
     async function getEntry() {
       try {
         const response = await axios.get(`${BASE}/${entry}`);
+
         console.log(response.data[0])
         setEntryData(response.data[0])
-        setIsError(false)
+        setErrData("")
       } catch (err) {
-        console.error(err)
-        setIsError(true)
+        setEntryData("");
+        setErrData(err.response.data);
       }
     }
     getEntry();
@@ -57,11 +59,10 @@ function App() {
           </select>
         </form>
 
-        <p>Font family: {fontClass}</p>
       </header>
 
       <SearchBar onSearch={handleSearch} />
-      <Entry entry={entryData} entryNotFound={isError} />
+      <Entry entry={entryData} entryNotFound={errData} />
     </main>
   );
 }
