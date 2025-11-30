@@ -1,4 +1,5 @@
-import React from 'react'
+import React from "react";
+import newWindow from "../../assets/images/icon-new-window.svg";
 
 
 function EntryTerm({ meaning }) {

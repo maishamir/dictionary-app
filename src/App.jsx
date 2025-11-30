@@ -3,6 +3,9 @@ import axios from "axios";
 import "./App.scss";
 import logo from "./assets/images/logo.svg";
 import Entry from "./components/Entry/Entry";
+import SearchBar from "./components/SearchBar/SearchBar";
+
+const BASE = "https://api.dictionaryapi.dev/api/v2/entries/en";
 
 function App() {
   const [isDark, setIsDark] = useState(false);
@@ -14,7 +17,7 @@ function App() {
 
   function handleSearch(entryInput) {
     setEntry(entryInput);
-    // console.log(entryInput);
+    console.log(entryInput);
   }
 
   useEffect(() => {
@@ -38,14 +41,17 @@ function App() {
         <img src={logo} alt="" />
 
         <form action="">
-          <select name="fontStyle" id="fontStyle" className="fontStyle">
-            <option value="sans-serif" onClick={(e) => setFontClass(e.target.value)}>
+          <select name="fontStyle" id="fontStyle" className="fontStyle" onChange={(e) => setFontClass(e.target.value)}>
+            <option
+              value="sans-serif"
+
+            >
               Sans Serif
             </option>
-            <option value="serif" onClick={(e) => setFontClass(e.target.value)}>
+            <option value="serif" >
               Serif
             </option>
-            <option value="mono" onClick={(e) => setFontClass(e.target.value)}>
+            <option value="mono" >
               Mono
             </option>
           </select>
@@ -55,7 +61,7 @@ function App() {
       </header>
 
       <SearchBar onSearch={handleSearch} />
-      <Entry entry={entryData} entryNotFound={isError} />
+      <Entry entryNotFound={isError} />
     </main>
   );
 }
