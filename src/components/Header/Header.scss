@@ -1,0 +1,25 @@
+@use "../../assets/styles/partials/variables" as *;
+
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 1.5rem;
+
+    &__logo {
+        height: 2rem;
+        width: 1.75rem;
+    }
+
+    &__toggles {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+    }
+
+    &__divider {
+        height: 2rem;
+        width: 1px;
+        background-color: $stone;
+    }
+}
