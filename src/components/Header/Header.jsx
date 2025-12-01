@@ -1,9 +1,18 @@
 import React, { useState } from 'react';
 import logo from "../../assets/images/logo.svg";
-import ThemeToggle from "../ThemeToggle/ThemeToggle";
+// import ThemeToggle from "../ThemeToggle/ThemeToggle";
 import "./Header.scss";
 
-function Header({ onFontSwitch }) {
+
+function ThemeToggle({toggled}) {
+    return <label className="switch">
+      <input type="checkbox" onChange={(e)=> toggled(e.target.checked)}/>
+        <span className="slider"></span>
+    </label>
+}
+
+
+function Header({ onFontSwitch, onToggle}) {
 
     const [fontClass, setFontClass] = useState("sans-serif");
 
@@ -29,7 +38,7 @@ function Header({ onFontSwitch }) {
                     </select>
                 </form>
                 <div className="header__divider"></div>
-                <ThemeToggle />
+          <ThemeToggle toggled={onToggle} />
             </div>
         </header>
     )

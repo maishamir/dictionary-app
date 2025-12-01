@@ -8,7 +8,7 @@ import Header from "./components/Header/Header";
 const BASE = "https://api.dictionaryapi.dev/api/v2/entries/en";
 
 function App() {
-  const [isDark, setIsDark] = useState(false);
+  const [isDark, setIsDark] = useState(true);
   const [fontClass, setFontClass] = useState("sans-serif");
 
   const [entry, setEntry] = useState("keyboard");
@@ -25,6 +25,12 @@ function App() {
     console.log(fontClassInput)
   }
 
+  function handleThemeSwitch(toggleStatus) {
+    setIsDark(toggleStatus);
+    // console.log(toggleStatus)
+  }
+
+  
   useEffect(() => {
     async function getEntry() {
       try {
@@ -44,7 +50,7 @@ function App() {
   return (
     <main className={`app ${fontClass}`} data-theme={isDark ? "dark" : "light"}>
 
-      <Header onFontSwitch={handleFontClass} />
+      <Header onFontSwitch={handleFontClass} onToggle={handleThemeSwitch} />
 
       <SearchBar onSearch={handleSearch} />
       <Entry entry={entryData} entryNotFound={errData} />

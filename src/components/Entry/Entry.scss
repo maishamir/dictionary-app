@@ -109,6 +109,10 @@
     list-style-type: none;
     color: $violet;
     font-weight: bold;
+    
+    li {
+      cursor: pointer;
+    }
 }
 
 .source__link {
