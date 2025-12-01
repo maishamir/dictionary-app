@@ -1,106 +1,96 @@
 import { useRef } from "react";
-import "./Entry.scss"
+import "./Entry.scss";
 import newWindow from "../../assets/images/icon-new-window.svg";
 import playIcon from "../../assets/images/icon-play.svg";
 
-
-
-
-function EntryTerm({ meaning }) {
-
-    const definitions = meaning.definitions;
-
+// Small audio button subcomponent for clarity
+function AudioPlayer({ url }) {
+    const audioRef = useRef(null);
+    if (!url) return null;
     return (
-        <div className='entry__meaning'>
+        <>
+            <audio src={url} ref={audioRef}></audio>
+            <img
+                src={playIcon}
+                alt="Play audio"
+                className="entry__play"
+                onClick={() => audioRef.current && audioRef.current.play()}
+                style={{ cursor: "pointer" }}
+            />
+        </>
+    );
+}
+
+// Renders each meaning with definitions, examples, and synonyms
+function EntryTerm({ meaning }) {
+    const { partOfSpeech, definitions, synonyms } = meaning;
+    return (
+        <div className="entry__meaning">
             <div className="entry__pos">
-                <p>{meaning.partOfSpeech}</p>
+                <p>{partOfSpeech}</p>
                 <div className="divider"></div>
             </div>
             <ul className="entry__meanings">
-                {
-                    definitions.map((definition, index) => {
-                        return <li key={index}>{definition.definition}</li>
-                    })
-
-                }
-
-
+                {definitions.map((def, i) => (
+                    <li key={i}>
+                        {def.definition}
+                        {def.example && (
+                            <p className="entry__example">"{def.example}"</p>
+                        )}
+                    </li>
+                ))}
             </ul>
-            {meaning.synonyms.length > 0 &&
+            {synonyms && synonyms.length > 0 && (
                 <div>
                     <p className="label">Synonyms</p>
                     <ul className="synonyms">
-                        {meaning.synonyms.map((synonym, index) => {
-                            return <li key={index}>{synonym}</li>
-                        })}
+                        {synonyms.map((syn, i) => (
+                            <li key={i}>{syn}</li>
+                        ))}
                     </ul>
                 </div>
-            }
-
-            {definitions.map((definition, index) =>
-            (definition.example &&
-                <p key={index}>"{definition.example}"</p>
-            ))}
-
+            )}
         </div>
-    )
+    );
 }
 
-
 function Entry({ entry, entryNotFound }) {
-
-
-    const audioRef = useRef(null);
-
-
-    function playAudio() {
-        audioRef.current.play()
-    }
-
-    if (entry) {
-
-        const pronounciation = entry.phonetics.find(phonetic => phonetic.audio)
-        const pronounciationURL = pronounciation ? pronounciation.audio : ""
+    if (!entry) {
         return (
-            <section className='entry'>
-                <h1 className="entry__term">
-                    {entry.word}
-                </h1>
-                <p className="body-m">{entry.phonetic}</p>
-
-                {pronounciationURL &&
-                    (<><audio src={pronounciationURL} ref={audioRef}></audio>
-
-                        <img src={playIcon} alt="" onClick={() => playAudio()} /></>)
-                }
-
-                <div>
-                    {
-                        entry.meanings.map((meaning, index) => {
-                            return <EntryTerm meaning={meaning} key={index} />
-                        })
-                    }
-                </div>
-                <hr />
-                <small>Source</small>
-                <a href={entry.sourceUrls[0]} target="_blank">
-                    {entry.sourceUrls[0]} <img src={newWindow} alt="" />{" "}
-                </a>
-            </section>
-        )
+            <div className="entryError">
+                <h1>{entryNotFound.title}</h1>
+                <p>
+                    {entryNotFound.message} {entryNotFound.resolution}
+                </p>
+            </div>
+        );
     }
-    return (
-        <div className="entryError">
-            <h1>{entryNotFound.title}</h1>
-            <p>{entryNotFound.message} {entryNotFound.resolution}</p>
-        </div>
-    )
 
+    // Grab the first audio with an audio URL, else blank
+    const pronunciation = entry.phonetics.find(p => p.audio) || {};
+    const audioUrl = pronunciation.audio || "";
+
+    return (
+        <section className="entry">
+            <h1 className="entry__term">{entry.word}</h1>
+            <p className="body-m">{entry.phonetic}</p>
+            <AudioPlayer url={audioUrl} />
+            <div>
+                {entry.meanings.map((meaning, i) => (
+                    <EntryTerm meaning={meaning} key={i} />
+                ))}
+            </div>
+            <hr />
+            <small>Source</small>
+            <a
+                href={entry.sourceUrls[0]}
+                target="_blank"
+                rel="noopener noreferrer"
+            >
+                {entry.sourceUrls[0]} <img src={newWindow} alt="" />
+            </a>
+        </section>
+    );
 }
 
 export default Entry;
-
-
-
-
-
