@@ -10,9 +10,13 @@
         padding-right: 2.5rem;
         width: 100%;
         // background-color: var(--inputBG);
-        background-color: $cream;
+        background-color: var(--input-box);
         border: none;
         border-radius: 1rem;
+
+        &::placeholder {
+          color: var(--placeholder);
+        }
 
 
         &:focus {

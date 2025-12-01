@@ -48,13 +48,16 @@ function App() {
   }, [entry]);
 
   return (
-    <main className={`app ${fontClass}`} data-theme={isDark ? "dark" : "light"}>
+    <div className="appContainer" data-theme={isDark ? "dark" : "light"}>
+      <main className={`app ${fontClass}`} >
 
       <Header onFontSwitch={handleFontClass} onToggle={handleThemeSwitch} />
 
       <SearchBar onSearch={handleSearch} />
       <Entry entry={entryData} entryNotFound={errData} />
     </main>
+    </div>
+    
   );
 }
 

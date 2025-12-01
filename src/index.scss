@@ -1,2 +1,22 @@
 @use "./assets/styles/partials/globals" as *;
 @use "./assets/styles/partials/typography" as *;
+@use "./assets/styles/partials/variables" as *;
+
+:root {
+  --bg-color: white;
+  --icon-stroke: #{$stone};
+  --input-box: #{$cream};
+  --placeholder: hsla(0, 0%, 23%, 0.75);
+  --body-color: #{$cinder};
+  --divider: #{$cloud};
+}
+
+
+[data-theme = "dark"] {
+  --bg-color: #{$obsidian};
+  --icon-stroke: #{$violet};
+  --input-box: #{$charcoal};
+  --placeholder: hsla(0, 100%, 100%, 0.75);
+  --body-color: white;
+  --divider: #{$granite};
+}
