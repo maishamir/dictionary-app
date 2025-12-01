@@ -1,0 +1,36 @@
+@use "../../assets/styles/partials/variables" as *;
+
+.searchBar {
+    &__input {
+        font-weight: bold;
+        font-size: 1rem;
+        padding: 0 1.5rem;
+        height: 3rem;
+
+        padding-right: 2.5rem;
+        width: 100%;
+        // background-color: var(--inputBG);
+        background-color: $cream;
+        border: none;
+        border-radius: 1rem;
+
+
+        &:focus {
+            outline: none;
+
+        }
+    }
+
+    &__form {
+        position: relative;
+    }
+
+    .searchIcon {
+        position: absolute;
+        height: 1rem; 
+        width: 1rem;
+        right: 1rem;
+        top: 50%;
+        transform: translateY(-50%);
+    }
+}
