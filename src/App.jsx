@@ -8,7 +8,7 @@ import Header from "./components/Header/Header";
 const BASE = "https://api.dictionaryapi.dev/api/v2/entries/en";
 
 function App() {
-  const [isDark, setIsDark] = useState(true);
+  const [isDark, setIsDark] = useState(false);
   const [fontClass, setFontClass] = useState("sans-serif");
 
   const [entry, setEntry] = useState("keyboard");

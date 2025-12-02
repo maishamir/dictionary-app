@@ -1,40 +1,52 @@
 @use "../../assets/styles/partials/variables" as *;
 
 .searchBar {
-    &__input {
-        font-weight: bold;
-        font-size: 1rem;
-        padding: 0 1.5rem;
-        height: 3rem;
+    position: relative;
 
-        padding-right: 2.5rem;
-        width: 100%;
-        // background-color: var(--inputBG);
-        background-color: var(--input-box);
-        border: none;
-        border-radius: 1rem;
+  &__input {
+    font-weight: bold;
+    font-size: 1rem;
+    padding: 0 1.5rem;
+    height: 3rem;
+    color: var(--body-color);
+    padding-right: 2.5rem;
+    width: 100%;
+    background-color: var(--input-box);
+    border: none;
+    border-radius: 1rem;
 
-        &::placeholder {
-          color: var(--placeholder);
-        }
-
-
-        &:focus {
-            outline: none;
-
-        }
+    &::placeholder {
+      color: var(--placeholder);
     }
 
-    &__form {
-        position: relative;
+    &:focus {
+      outline: 1px solid $violet;
     }
 
-    .searchIcon {
-        position: absolute;
-        height: 1rem; 
-        width: 1rem;
-        right: 1rem;
-        top: 50%;
-        transform: translateY(-50%);
+    &.errorState {
+      // outline: 1px solid red;
+      outline: 1px solid $coral;
+
     }
+  }
+
+  &__form {
+    position: relative;
+  }
+
+  .searchIcon {
+    position: absolute;
+    height: 1rem;
+    width: 1rem;
+    right: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+
+  }
+}
+
+.errMsg {
+  color: $coral;
+  position: absolute;
+  bottom: -1.25rem;
 }

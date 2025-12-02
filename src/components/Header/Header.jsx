@@ -1,8 +1,6 @@
 import React, { useState } from "react";
 import logo from "../../assets/images/logo.svg";
-// import ThemeToggle from "../ThemeToggle/ThemeToggle";
 import "./Header.scss";
-// import themeIcon from "../../assets/images/icon-moon.svg";
 
 function ThemeToggle({ toggled }) {
   return (

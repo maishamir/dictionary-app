@@ -6,7 +6,7 @@
   --bg-color: white;
   --icon-stroke: #{$stone};
   --input-box: #{$cream};
-  --placeholder: hsla(0, 0%, 23%, 0.75);
+  --placeholder: rgba(59, 59, 59, 0.25);
   --body-color: #{$cinder};
   --divider: #{$cloud};
 }
@@ -16,7 +16,7 @@
   --bg-color: #{$obsidian};
   --icon-stroke: #{$violet};
   --input-box: #{$charcoal};
-  --placeholder: hsla(0, 100%, 100%, 0.75);
+  --placeholder: hsla(0, 100%, 100%, 0.25);
   --body-color: white;
   --divider: #{$granite};
 }
