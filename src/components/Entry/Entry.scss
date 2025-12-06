@@ -4,8 +4,7 @@
   &__word {
     display: flex;
     justify-content: space-between;
-    margin-top: 1.5rem;
-    // margin-bottom: 2rem;
+    margin-top: 2rem;
   }
 
   &__term-phone {
@@ -17,15 +16,34 @@
   &__play {
     height: 3rem;
     width: 3rem;
+
+    &:hover {
+      cursor: pointer;
+
+      .entry__play-circle {
+        opacity: 1;
+      }
+
+      .entry__play-triangle {
+        fill: white;
+      }
+    }
+
+    &-circle {
+      transition: all 0.2s;
+
+    }
+
+    &-triangle {
+
+      transition: all 0.2s;
+    }
   }
 
   &__phonetic {
     color: $violet;
   }
 
-  &__definitions {
-    // border: 1px solid $violet;
-  }
 
   &__meaning {
     margin-top: 2rem;
@@ -38,9 +56,9 @@
     display: flex;
     flex-direction: column;
     gap: 0.8125rem;
+
     li {
       padding-left: 1.25rem;
-      // color: $cinder;
       font-size: 0.9375rem;
 
       &::marker {
@@ -54,7 +72,6 @@
     align-items: center;
     gap: 1.25rem;
     font-weight: bold;
-    // color: $cinder;
     font-style: italic;
     font-size: 1.125rem;
     margin-bottom: 2rem;
@@ -112,8 +129,6 @@
   display: flex;
   gap: 1rem;
   align-items: center;
-  // text-decoration-color: var(--body-color);
-  // text-decoration: ;
 
 
   img {
