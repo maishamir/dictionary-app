@@ -1,17 +1,32 @@
 @use "./assets/styles/partials/mixins" as *;
+@use "./assets/styles/partials/typography" as *;
 
 .app {
+  margin: 0 auto;
+  font-size: 1rem;
+
+  @include tablet {
+    @include body-m;
+  }
   &__container {
-    height: 100vh;
+    min-height: 100vh;
     width: 100vw;
     background-color: var(--bg-color);
     color: var(--body-color);
     padding: 1.5rem;
+
+    @include tablet {
+      padding: 3.75rem 2.25rem;
+    }
   }
 
   @include tablet {
     max-width: 90%;
-    margin: 0 auto;
+    
+  }
+
+  @include desktop {
+    max-width: 50%;
   }
 
   * {

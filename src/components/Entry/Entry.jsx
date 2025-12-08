@@ -77,7 +77,7 @@ function Entry({ entry, entryNotFound }) {
       <div className="entry__word">
         <div className="entry__term-phone">
           <h1 className="entry__term">{entry.word}</h1>
-          <p className="body-m entry__phonetic">{entry.phonetic}</p>
+          <p className="entry__phonetic">{entry.phonetic}</p>
         </div>
         <AudioPlayer url={audioUrl} />
       </div>
@@ -89,7 +89,7 @@ function Entry({ entry, entryNotFound }) {
       <hr />
 
       <div className="entry__source">
-        <small className="body-s">Source</small>
+        <small className="entry__source-label">Source</small>
         <a
           href={entry.sourceUrls[0]}
           target="_blank"

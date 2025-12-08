@@ -1,4 +1,6 @@
 @use "../../assets/styles/partials/variables" as *;
+@use "../../assets/styles/partials/typography" as *;
+@use "../../assets/styles/partials/mixins" as *;
 
 .searchBar {
     position: relative;
@@ -17,6 +19,10 @@
 
     &::placeholder {
       color: var(--placeholder);
+
+      @include tablet {
+        font-size: 1.25rem;
+      }
     }
 
     &:focus {

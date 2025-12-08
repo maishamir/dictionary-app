@@ -1,10 +1,18 @@
 @use "../../assets/styles/partials/variables" as *;
+@use "../../assets/styles/partials/typography" as *;
+@use "../../assets/styles/partials/mixins" as *;
 
 .entry {
   &__word {
     display: flex;
     justify-content: space-between;
     margin-top: 2rem;
+  }
+
+  &__term {
+    @include tablet {
+      @include heading-l;
+    }
   }
 
   &__term-phone {
@@ -16,6 +24,11 @@
   &__play {
     height: 3rem;
     width: 3rem;
+
+    @include tablet {
+      height: 4.7rem;
+      width: 4.7rem;
+    }
 
     &:hover {
       cursor: pointer;
@@ -31,19 +44,21 @@
 
     &-circle {
       transition: all 0.2s;
-
     }
 
     &-triangle {
-
       transition: all 0.2s;
     }
   }
 
   &__phonetic {
     color: $violet;
-  }
+    @include body-m;
 
+    @include tablet {
+      @include heading-m;
+    }
+  }
 
   &__meaning {
     margin-top: 2rem;
@@ -61,6 +76,10 @@
       padding-left: 1.25rem;
       font-size: 0.9375rem;
 
+      @include tablet {
+        @include body-m;
+      }
+
       &::marker {
         color: $violet;
       }
@@ -75,6 +94,11 @@
     font-style: italic;
     font-size: 1.125rem;
     margin-bottom: 2rem;
+
+    @include tablet {
+      @include heading-m;
+      font-weight: bold;
+    }
 
     .divider {
       height: 1px;
@@ -94,9 +118,22 @@
     gap: 0.5rem;
     margin-top: 1.5rem;
 
-    small {
+    @include tablet {
+      flex-direction: row;
+      align-items: center;
+      * {
+        text-decoration: none !important;
+      }
+    }
+
+    &-label {
       text-decoration: underline;
       color: $stone;
+
+      @include tablet {
+        margin-right: 1.5rem;
+        // text-decoration: none;
+      }
     }
 
     a {
@@ -108,11 +145,19 @@
 .label {
   color: $stone;
   font-size: 1rem;
+
+  @include tablet {
+    @include heading-s;
+  }
 }
 
 .synonym__list {
   display: flex;
   gap: 1.5rem;
+
+  @include tablet {
+    @include heading-s;
+  }
 }
 
 .synonyms {
@@ -129,7 +174,6 @@
   display: flex;
   gap: 1rem;
   align-items: center;
-
 
   img {
     height: 0.75rem;

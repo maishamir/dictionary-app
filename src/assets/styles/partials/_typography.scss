@@ -1,28 +1,28 @@
-.heading-l {
+@mixin heading-l {
   font-size: 4rem;
   line-height: 4.8125rem;
   font-weight: bold;
 }
 
-.heading-m {
+@mixin heading-m {
   font-size: 1.5rem;
   line-height: 1.8125rem;
   font-weight: normal;
 }
 
-.heading-s {
+@mixin heading-s {
   font-size: 1.25rem;
   line-height: 1.5rem;
   font-weight: normal;
 }
 
-.body-m {
+@mixin body-m {
   font-size: 1.125rem;
   line-height: 1.5rem;
   font-weight: normal;
 }
 
-.body-s {
+@mixin body-s {
   font-size: 0.875rem !important;
   line-height: 1.0625rem;
   font-weight: normal;
