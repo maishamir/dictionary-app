@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import logo from "../../assets/images/logo.svg";
 import "./Header.scss";
+import { Menu, Button, Text } from "@mantine/core";
+import Dropdown from "../Dropdown/Dropdown";
 
 function ThemeToggle({ toggled }) {
   return (
@@ -31,15 +33,15 @@ function ThemeToggle({ toggled }) {
   );
 }
 
-function Header({ onFontSwitch, onToggle }) {
-  const [fontClass, setFontClass] = useState("sans-serif");
+function Header({ onFontSwitch, onToggle, fontClass }) {
+  // const [fontClass, setFontClass] = useState("sans-serif");
 
   return (
     <header className="header">
       <img src={logo} alt="" className="header__logo" />
 
       <div className="header__toggles">
-        <form action="">
+        {/* <form action="">
           <select
             name="fontStyle"
             id="fontStyle"
@@ -50,7 +52,17 @@ function Header({ onFontSwitch, onToggle }) {
             <option value="serif">Serif</option>
             <option value="mono">Mono</option>
           </select>
-        </form>
+        </form> */}
+        <Dropdown
+          options={[
+            { name: "Sans Serif", value: "sans-serif" },
+            { name: "Serif", value: "serif" },
+            { name: "Mono", value: "mono" },
+          ]}
+          value={fontClass}
+          onChange={onFontSwitch}
+        />
+
         <div className="header__divider"></div>
         <ThemeToggle toggled={onToggle} />
       </div>

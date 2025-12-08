@@ -10,6 +10,7 @@ const BASE = "https://api.dictionaryapi.dev/api/v2/entries/en";
 function App() {
   const [isDark, setIsDark] = useState(false);
   const [fontClass, setFontClass] = useState("sans-serif");
+  const [selectedFont, setSelectedFont] = useState("Sans Serif")
 
   const [entry, setEntry] = useState("keyboard");
   const [entryData, setEntryData] = useState("");
@@ -51,7 +52,7 @@ function App() {
     <div className="appContainer" data-theme={isDark ? "dark" : "light"}>
       <main className={`app ${fontClass}`} >
 
-      <Header onFontSwitch={handleFontClass} onToggle={handleThemeSwitch} />
+      <Header onFontSwitch={handleFontClass} onToggle={handleThemeSwitch} fontClass={fontClass} />
 
       <SearchBar onSearch={handleSearch} />
       <Entry entry={entryData} entryNotFound={errData} />

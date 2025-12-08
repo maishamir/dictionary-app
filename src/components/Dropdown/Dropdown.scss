@@ -1,0 +1,53 @@
+@use "../../assets/styles/partials/variables" as *;
+
+.dropdown {
+  position: relative;
+  &__selected {
+    border: none;
+    display: flex;
+    font-size: 1.125rem;
+    font-weight: bold;
+    gap: 1.125rem;
+    background-color: transparent;
+    color: var(--body-color);
+    cursor: pointer;
+  }
+
+  &__list {
+    position: absolute;
+    list-style-type: none;
+    z-index: 100;
+    // border: 1px solid black;
+    background: var(--dropdown-bg);
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    padding: 1.5rem;
+    border-radius: 1rem;
+    right: 0;
+    top: 2rem;
+    -webkit-box-shadow: var(--box-shadow);
+    box-shadow: var(--box-shadow);
+    li {
+      white-space: nowrap;
+      font-weight: bold;
+      &:hover {
+        cursor: pointer;
+        color: $violet;
+      }
+
+      &.sans-serif {
+        font-family: "Inter", sans-serif;
+      }
+
+      &.serif {
+        font-family: "Lora", serif;
+      }
+
+      &.mono {
+        font-family: "Inconsolata", monospace;
+        font-style: normal;
+      }
+    }
+  }
+}

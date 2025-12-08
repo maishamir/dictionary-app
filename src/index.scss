@@ -9,6 +9,8 @@
   --placeholder: rgba(59, 59, 59, 0.25);
   --body-color: #{$cinder};
   --divider: #{$cloud};
+  --box-shadow: 0px 5px 30px 5px rgba(0, 0, 0, 0.1);
+  --dropdown-bg: white;
 }
 
 
@@ -19,4 +21,6 @@
   --placeholder: hsla(0, 100%, 100%, 0.25);
   --body-color: white;
   --divider: #{$granite};
+  --box-shadow: 0px 5px 30px 5px #A445ED;
+  --dropdown-bg: #{$charcoal};
 }
