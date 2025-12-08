@@ -17,6 +17,10 @@
     border: none;
     border-radius: 1rem;
 
+    @include tablet {
+      font-size: 1.25rem;
+    }
+
     &::placeholder {
       color: var(--placeholder);
 
@@ -30,7 +34,6 @@
     }
 
     &.errorState {
-      // outline: 1px solid red;
       outline: 1px solid $coral;
 
     }
@@ -55,4 +58,8 @@
   color: $coral;
   position: absolute;
   bottom: -1.25rem;
+
+  @include tablet {
+    bottom: -2rem;
+  }
 }

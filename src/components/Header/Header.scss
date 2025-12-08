@@ -1,4 +1,5 @@
 @use "../../assets/styles/partials/variables" as *;
+@use "../../assets/styles/partials/mixins" as *;
 
 .header {
   display: flex;
@@ -9,6 +10,11 @@
   &__logo {
     height: 2rem;
     width: 1.75rem;
+
+    @include tablet {
+      width: 2rem;
+      height: 2.28rem;
+    }
   }
 
   &__toggles {
@@ -75,7 +81,6 @@ input:checked + .slider:before {
   transform: translateX(1.25rem);
 }
 
-
 .themeToggle {
   display: flex;
   align-items: center;
@@ -87,5 +92,4 @@ input:checked + .slider:before {
 }
 
 .fontStyle {
-  
 }
