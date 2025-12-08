@@ -49,7 +49,7 @@ function App() {
   }, [entry]);
 
   return (
-    <div className="appContainer" data-theme={isDark ? "dark" : "light"}>
+    <div className="app__container" data-theme={isDark ? "dark" : "light"}>
       <main className={`app ${fontClass}`} >
 
       <Header onFontSwitch={handleFontClass} onToggle={handleThemeSwitch} fontClass={fontClass} />

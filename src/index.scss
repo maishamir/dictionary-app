@@ -1,6 +1,14 @@
 @use "./assets/styles/partials/globals" as *;
 @use "./assets/styles/partials/typography" as *;
 @use "./assets/styles/partials/variables" as *;
+@use "./assets/styles/partials/mixins" as *;
+
+body {
+  @include tablet {
+    // background-color: red;
+    max-width: 90%;
+  }
+}
 
 :root {
   --bg-color: white;
@@ -24,3 +32,4 @@
   --box-shadow: 0px 5px 30px 5px #A445ED;
   --dropdown-bg: #{$charcoal};
 }
+
