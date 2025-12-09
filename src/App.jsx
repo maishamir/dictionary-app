@@ -1,16 +1,18 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 import "./App.scss";
-import Entry from "./components/Entry/Entry";
-import SearchBar from "./components/SearchBar/SearchBar";
 import Header from "./components/Header/Header";
+import SearchBar from "./components/SearchBar/SearchBar";
+import Entry from "./components/Entry/Entry";
+
+import useLocalStorage from "use-local-storage";
 
 const BASE = "https://api.dictionaryapi.dev/api/v2/entries/en";
 
 function App() {
-  const [isDark, setIsDark] = useState(false);
+
+  const [isDark, setIsDark] = useLocalStorage("isDark", false);
   const [fontClass, setFontClass] = useState("sans-serif");
-  const [selectedFont, setSelectedFont] = useState("Sans Serif")
 
   const [entry, setEntry] = useState("keyboard");
   const [entryData, setEntryData] = useState("");
