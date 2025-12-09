@@ -3,11 +3,11 @@ import logo from "../../assets/images/logo.svg";
 import "./Header.scss";
 import Dropdown from "../Dropdown/Dropdown";
 
-function ThemeToggle({ toggled }) {
+function ThemeToggle({ toggled, isToggled }) {
   return (
     <div className="themeToggle">
       <label className="switch">
-        <input type="checkbox" onChange={(e) => toggled(e.target.checked)} />
+        <input type="checkbox" onChange={(e) => toggled(e.target.checked)} checked={isToggled} />
         <span className="slider"></span>
       </label>
       <div className="themeToggle__iconWrapper">
@@ -32,7 +32,7 @@ function ThemeToggle({ toggled }) {
   );
 }
 
-function Header({ onFontSwitch, onToggle, fontClass }) {
+function Header({ onFontSwitch, onToggle, fontClass, isToggled }) {
 
   return (
     <header className="header">
@@ -51,7 +51,7 @@ function Header({ onFontSwitch, onToggle, fontClass }) {
         />
 
         <div className="header__divider"></div>
-        <ThemeToggle toggled={onToggle} />
+        <ThemeToggle toggled={onToggle} isToggled={isToggled}/>
       </div>
     </header>
   );

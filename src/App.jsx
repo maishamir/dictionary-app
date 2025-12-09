@@ -10,13 +10,12 @@ import useLocalStorage from "use-local-storage";
 const BASE = "https://api.dictionaryapi.dev/api/v2/entries/en";
 
 function App() {
-
   const [isDark, setIsDark] = useLocalStorage("isDark", false);
   const [fontClass, setFontClass] = useState("sans-serif");
 
   const [entry, setEntry] = useState("keyboard");
   const [entryData, setEntryData] = useState("");
-  const [errData, setErrData] = useState("")
+  const [errData, setErrData] = useState("");
 
   function handleSearch(entryInput) {
     setEntry(entryInput);
@@ -25,22 +24,21 @@ function App() {
 
   function handleFontClass(fontClassInput) {
     setFontClass(fontClassInput);
-    console.log(fontClassInput)
+    console.log(fontClassInput);
   }
 
   function handleThemeSwitch(toggleStatus) {
     setIsDark(toggleStatus);
   }
 
-  
   useEffect(() => {
     async function getEntry() {
       try {
         const response = await axios.get(`${BASE}/${entry}`);
 
-        console.log(response.data[0])
-        setEntryData(response.data[0])
-        setErrData("")
+        console.log(response.data[0]);
+        setEntryData(response.data[0]);
+        setErrData("");
       } catch (err) {
         setEntryData("");
         setErrData(err.response.data);
@@ -51,15 +49,18 @@ function App() {
 
   return (
     <div className="app__container" data-theme={isDark ? "dark" : "light"}>
-      <main className={`app ${fontClass}`} >
+      <main className={`app ${fontClass}`}>
+        <Header
+          onFontSwitch={handleFontClass}
+          onToggle={handleThemeSwitch}
+          fontClass={fontClass}
+          isToggled={isDark}
+        />
 
-      <Header onFontSwitch={handleFontClass} onToggle={handleThemeSwitch} fontClass={fontClass} />
-
-      <SearchBar onSearch={handleSearch} />
-      <Entry entry={entryData} entryNotFound={errData} />
-    </main>
+        <SearchBar onSearch={handleSearch} />
+        <Entry entry={entryData} entryNotFound={errData} />
+      </main>
     </div>
-    
   );
 }
 
