@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import logo from "../../assets/images/logo.svg";
 import "./Header.scss";
-import { Menu, Button, Text } from "@mantine/core";
 import Dropdown from "../Dropdown/Dropdown";
 
 function ThemeToggle({ toggled }) {
