@@ -11,7 +11,7 @@ const BASE = "https://api.dictionaryapi.dev/api/v2/entries/en";
 
 function App() {
   const [isDark, setIsDark] = useLocalStorage("isDark", false);
-  const [fontClass, setFontClass] = useState("sans-serif");
+  const [fontClass, setFontClass] = useState("serif");
 
   const [entry, setEntry] = useState("keyboard");
   const [entryData, setEntryData] = useState("");
