@@ -28,7 +28,6 @@ function App() {
 
   function handleThemeSwitch(toggleStatus) {
     setIsDark(toggleStatus);
-    // console.log(toggleStatus)
   }
 
   

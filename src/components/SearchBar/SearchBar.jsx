@@ -19,7 +19,7 @@ function SearchBar({ onSearch }) {
       setErrClass("errorState")
       setEmptySearch(true)
     }
-    
+
   }
   return (
     <section className="searchBar">
@@ -31,8 +31,7 @@ function SearchBar({ onSearch }) {
           onChange={(e) => setEntry(e.target.value)}
         />
         <img src={searchIcon} alt="" className="searchIcon" />
-        {/* <p className="body-s errMsg">Whoops, can't be empty...</p> */}
-        <p className="body-s errMsg" style={emptySearch ? { "visibility": "visible" } : {"visibility": "hidden"}}>Whoops, can't be empty...</p>
+        <p className="body-s errMsg" style={emptySearch ? { "visibility": "visible" } : { "visibility": "hidden" }}>Whoops, can't be empty...</p>
       </form>
     </section>
   );

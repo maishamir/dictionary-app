@@ -33,25 +33,13 @@ function ThemeToggle({ toggled }) {
 }
 
 function Header({ onFontSwitch, onToggle, fontClass }) {
-  // const [fontClass, setFontClass] = useState("sans-serif");
 
   return (
     <header className="header">
       <img src={logo} alt="" className="header__logo" />
 
       <div className="header__toggles">
-        {/* <form action="">
-          <select
-            name="fontStyle"
-            id="fontStyle"
-            className="fontStyle"
-            onChange={(e) => onFontSwitch(e.target.value)}
-          >
-            <option value="sans-serif">Sans Serif</option>
-            <option value="serif">Serif</option>
-            <option value="mono">Mono</option>
-          </select>
-        </form> */}
+        
         <Dropdown
           options={[
             { name: "Sans Serif", value: "sans-serif" },
