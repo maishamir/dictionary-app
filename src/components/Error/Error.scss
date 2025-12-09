@@ -1,0 +1,38 @@
+@use "../../assets/styles/partials/typography" as *;
+@use "../../assets/styles/partials/mixins" as *;
+@use "../../assets/styles/partials/variables" as *;
+
+.error {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 4rem;
+    text-align: center;
+
+    @include tablet {
+
+        margin-top: 6rem;
+    }
+
+    &__emoji {
+        margin-bottom: 2.75rem;
+        font-size: 4rem;
+        line-height: 4rem;
+    }
+
+    &__title {
+        margin-bottom: 1.5rem;
+
+        @include tablet {
+            font-size: 1.25rem;
+        }
+    }
+
+    &__message {
+        color: $stone;
+
+        @include tablet {
+            @include body-m;
+        }
+    }
+}

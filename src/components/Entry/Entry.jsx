@@ -2,19 +2,10 @@ import { useRef } from "react";
 import "./Entry.scss";
 import newWindow from "../../assets/images/icon-new-window.svg";
 import playIcon from "../../assets/images/icon-play.svg";
+import Error from "../Error/Error";
 
 
-function Error({ errMessage }) {
-  return (
-    <div className="errMsg">
-      <h1 className="errMsg__emoji">😞</h1>
-      <h2 className="errMsg__title">{errMessage.title}</h2>
-      <p className="errMsg__message">
-        {errMessage.message} {errMessage.resolution}
-      </p>
-    </div>
-  );
-}
+
 
 // Small audio button subcomponent for clarity
 function AudioPlayer({ url }) {
