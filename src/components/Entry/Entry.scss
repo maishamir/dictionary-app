@@ -121,6 +121,7 @@
     @include tablet {
       flex-direction: row;
       align-items: center;
+
       * {
         text-decoration: none !important;
       }
@@ -163,10 +164,6 @@
   list-style-type: none;
   color: $violet;
   font-weight: bold;
-
-  li {
-    cursor: pointer;
-  }
 }
 
 .source__link {

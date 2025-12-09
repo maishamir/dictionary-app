@@ -43,7 +43,7 @@ function EntryTerm({ meaning }) {
           <p className="label">Synonyms</p>
           <ul className="synonyms">
             {synonyms.map((syn, i) => (
-              <li key={i} onClick={() => alert(syn)}>
+              <li key={i} >
                 {syn}
               </li>
             ))}
